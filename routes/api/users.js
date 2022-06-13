@@ -7,15 +7,10 @@ const config = require("config")
 const { check,validationResult }=require("express-validator")
 const User=require("../../models/User")
 
-// @route   post api/users
-// @desc    registerconst gravatar = require("gravatar")
-// const bc user
-// @access  public
-
 /** 
  @api {post} /api/v1/users  for regestration of user
- * @apiName postusers
- * @apiGroup user
+ * @apiName postUsers
+ * @apiGroup users
  *
  * @apiSuccess {String} name of the user
  *  @apiSuccess {String} email email of the user

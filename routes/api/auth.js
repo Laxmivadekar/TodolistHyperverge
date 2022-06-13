@@ -7,15 +7,11 @@ const { check,validationResult }=require("express-validator")
 const auth=require("../../middleware/auth");
 const User = require("../../models/User");
 
-// @route   GET api/auth
-// @desc    Test route
-// @access  public
-
 
 /** 
  @api {post} /api/v1/users  for login(authention) of user
- * @apiName postusers
- * @apiGroup user
+ * @apiName postUsers
+ * @apiGroup auth
  *
  * @apiSuccess {String}  email of the user
  * @apiSuccess {number}  password of the user
@@ -35,10 +31,20 @@ router.get("/",auth,async(req,res) => {
     }
 });
 
-// Get user information for the authenticated user
-// @route   POST api/usersnom run generate:docs
-// @desc    authentication user and GET token
-// @access  public
+
+/** 
+ @api {post} /api/v1/users  for login(authention) of user
+ * @apiName postUsers
+ * @apiGroup auth
+ *
+ * @apiSuccess {String}  email of the userpassword 
+ * @apiSuccess {number}  password of the user
+ * 
+ * @apiSuccess jwtoken
+ * 
+ * @apiError {String} 400
+ * @apiError msg:Client side error(Bad request)
+; */
 router.post("/",[
 
     check("email","please include a valid email").isEmail(),
